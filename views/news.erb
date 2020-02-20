@@ -22,14 +22,47 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-      <h1>News</h1>
-    </div>
-
-    <p>
-        In <%= @location %>, it is currently <%= @current_temperature %> and <%= @conditions %>
-    </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>Weather Forecast</h3>
+                    <h5>In <%= @location %>, it is currently <%= @current_temperature %> degree and <%= @conditions %></h5>
+                    
+                    <% for day in @array_weather %>
+                    <h5>A high temperature of <%= day["temperatureHigh"] %> and <%= day["summary"] %></h5>
+                    <% end %>
+                    
     
+                    
+                    
+                    <h3>News</h3>
+                <% for news in @array_news %>
+                    
+                    <h5> <%= news["title"] %> </h5>
+                    <p><%= news["description"] %></p>
+                    <p>
+                        <a href="<%= news["url"] %>" class="btn btn-dark">Read more</a>
+                    </p>
+                
+                <% end %>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+   
     <p>
     
         <% for day in @array_weather %>
@@ -37,23 +70,6 @@
         <% end %>
     
     </p>
-
-    <p>
-    
-        <% for news in @array_news %>
-        Here is the <%= news["title"] %>, <%= news["description"] %>, <%= news["url"] %>
-        <% end %>
-    
-    </p>
-
-    <p>
-        <%= @article1_title %>
-        <%= @article1_desc %>
-        <%= @article1_url %>
-
-    
-    </p>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
