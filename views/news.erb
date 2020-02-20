@@ -22,6 +22,55 @@
   </head>
   <body>
 
+    <div class="row">
+                <div class="col-md-9">
+                    <h4><%= @location %> Weather Forecast</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Day</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">High Temperature</th>
+                                <th scope="col">Low Temperature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            
+                            <% for day in @array_weather %>
+                            <tr>
+                                <th scope="row"><%= Time.at(day["time"]).strftime("%B %e, %Y") %></th>
+                                <td><%= day["summary"] %></td>
+                                <td><%= day["temperatureHigh"] %></td>
+                                <td><%= day["temperatureLow"] %></td>
+                            </tr>
+                            <% end %>
+                            
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-9">

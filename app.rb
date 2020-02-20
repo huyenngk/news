@@ -6,9 +6,10 @@ require "httparty"
 def view(template); erb template.to_sym; end
 before { puts "Parameters: #{params}" }                                     
 
-# enter your Dark Sky API key here
+# enter the Dark Sky API key 
 ForecastIO.api_key = "2bd468baa60dba0ff2e90b73af836c08"
 
+# enter the news API key 
 url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d049d79760cb4b7aac606da81e683918"
 news = HTTParty.get(url).parsed_response.to_hash
 
