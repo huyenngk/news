@@ -1,0 +1,11 @@
+
+p {
+    font-size: 96 px;
+}
+
+.jumbotron {
+    /* Background */
+    background-attachment: fixed;
+    background-image: url(weather.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;

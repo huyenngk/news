@@ -20,11 +20,21 @@
 
     <title>News</title>
   </head>
+  
   <body>
-
-    <div class="row">
+    
+    <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Your trusted source of weather forecast and news</h1>
+            </div>
+        </div>
+  
+  
+    <div class="container">
+        <div class="row">
                 <div class="col-md-9">
-                    <h4><%= @location %> Weather Forecast</h4>
+                    <h5>In <%= @location.upcase %>, it is currently <%= @current_temperature %> degree and <%= @conditions.downcase %></h5>
+                    <h5>Weather Forecast</h5>
                     <table class="table">
                         <thead>
                             <tr>
@@ -34,9 +44,8 @@
                                 <th scope="col">Low Temperature</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                            
+                        
+                        <tbody>    
                             <% for day in @array_weather %>
                             <tr>
                                 <th scope="row"><%= Time.at(day["time"]).strftime("%B %e, %Y") %></th>
@@ -45,7 +54,6 @@
                                 <td><%= day["temperatureLow"] %></td>
                             </tr>
                             <% end %>
-                            
                         </tbody>
                     </table>
 
@@ -56,38 +64,14 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h3>Weather Forecast</h3>
-                    <h5>In <%= @location %>, it is currently <%= @current_temperature %> degree and <%= @conditions %></h5>
-                    
-                    <% for day in @array_weather %>
-                    <h5>A high temperature of <%= day["temperatureHigh"] %> and <%= day["summary"] %></h5>
-                    <% end %>
-                    
-    
-                    
-                    
-                    <h3>News</h3>
+                
+                        
+                <h5>News</h5>
                 <% for news in @array_news %>
                     
-                    <h5> <%= news["title"] %> </h5>
+                    <h6> <%= news["title"] %> </h6>
                     <p><%= news["description"] %></p>
                     <p>
                         <a href="<%= news["url"] %>" class="btn btn-dark">Read more</a>
@@ -103,22 +87,6 @@
         </div>
     </div>
   
-
-
-
-
-
-
-
-
-   
-    <p>
-    
-        <% for day in @array_weather %>
-        A high temperature of <%= day["temperatureHigh"] %> and <%= day["summary"] %>
-        <% end %>
-    
-    </p>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

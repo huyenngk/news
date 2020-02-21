@@ -14,20 +14,22 @@ url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d049d79760cb4b7aac
 news = HTTParty.get(url).parsed_response.to_hash
 
 
-
-
+#The first route is used to capture a location from the user and submit that location to a second route
 get "/" do
   view "ask"
 end
 
+
+#The second route which displays the news
 get "/news" do
     
+    #Use the Geocoder API to turn the location (e.g. "Chicago") into a set of lat/long coordinates
     results = Geocoder.search(params["location"])
     lat_lng = results.first.coordinates
     lat = lat_lng[0]
     lng = lat_lng[1]
 
-    
+    #Send the lat/long coordinates to the Dark Sky API and retrieve the result
     forecast = ForecastIO.forecast(lat,lng).to_hash
 
     @location = params["location"]
@@ -38,7 +40,7 @@ get "/news" do
 
     @array_news = news["articles"]
     
-
+    
     view "news"
 end
 
