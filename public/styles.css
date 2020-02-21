@@ -1,11 +1,16 @@
 
-p {
-    font-size: 96 px;
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Acme', sans-serif;
 }
 
 .jumbotron {
     /* Background */
     background-attachment: fixed;
-    background-image: url(weather.jpg);
+    background-image: url(weather1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
